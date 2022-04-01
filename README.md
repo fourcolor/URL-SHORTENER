@@ -4,11 +4,15 @@
 * docker-compose
 ## Usage
 ### Setup
-1. 需要的 Database Application 已經打包成 docker-compose
+1. 進到 repo 並將backend pull下來
+```
+git clone git@github.com:fourcolor/backend.git
+```
+2. 需要的 Database Application 已經打包成 docker-compose
 ```
 docker-compose up -d --build
 ```
-2. 開啟 backend
+3. 開啟 backend
 ```
 $ cd backend/
 $ sudo go run src/app.go
