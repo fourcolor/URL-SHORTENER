@@ -10,8 +10,8 @@ docker-compose up -d --build
 ```
 2. 開啟 backend
 ```
-$ cd backend
-$ sudo go run backend/src/app.go
+$ cd backend/
+$ sudo go run src/app.go
 ```
 ### Backend API
 * POST http://localhost:8080/api/v1/urls 需要欄位為 url 以及 expireAt 會回傳 ```{ "id": originUrl, "shortUrl": short }```
