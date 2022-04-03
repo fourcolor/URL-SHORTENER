@@ -2,6 +2,7 @@
 ## Require
 * docker
 * docker-compose
+* golang
 ## Usage
 ### Setup
 1. 進到 repo 並將backend pull下來
@@ -41,4 +42,10 @@ $ curl -X GET -H "Content-Type:application/json" http://localhost:8080/AQAAAAAAA
 <a href="https://google.com">Found</a>.
 ```
 ## 實做過程
-首先
+* 使用語言: Golang
+* 使用資料庫: Mysql, Redis
+這次總共要設計兩個API，一個是用來產生短網址，一個是用來產生短網址，一個用來做短網址的重新導向。
+1. 產生短網址
+此API會先檢查使用者傳入的原始網址是否是真的，接著再檢查是否有存過相同的短網址(要url和expiredAt同時一樣)，接著才會開始產生短網址。而產生短網址的方式為利用一個計數器(存在redis的64 bits整數)分成 8 個字元，再透過Base64碼產生短網址。
+2. 重新導向
+會檢查redis或mysql是否存有該短網址，若是友才會重新導向，若沒有或是過期則會回傳 404 Not Found。
